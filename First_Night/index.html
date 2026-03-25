@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Noches en el Templo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Russo+One:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="environment" class="environment">
+        <div id="bg-image" class="bg-image"></div>
+    </div>
+
+    <div class="edge-fade"></div>
+
+    <div class="noise"></div>
+    <div id="flashlight" class="flashlight"></div>
+    
+    <div id="fade-overlay" class="fade-overlay active"><div class="intro-text">Night 1</div></div>
+
+    <div class="hud">
+        <div class="clock" id="clock">12 AM</div>
+    </div>
+
+    <div id="monitor-bar" class="monitor-bar"></div>
+
+    <div id="camera-system" class="camera-system">
+        <div id="cam-bg" class="cam-bg"></div>
+        
+        <div class="cam-noise"></div>
+        
+        <div class="cam-ui">
+            <div class="rec-icon"><span>•</span> REC</div>
+            <div class="map-container">
+                <button class="cam-btn active" data-cam="living">CAM 1 - Living</button>
+                <button class="cam-btn" data-cam="comedor">CAM 2 - Comedor</button>
+                <button class="cam-btn" data-cam="cocina">CAM 3 - Cocina</button>
+                <button class="cam-btn" data-cam="banio">CAM 4 - Baño</button>
+                <button class="cam-btn" data-cam="exterior">CAM 5 - Ext.</button>
+            </div>
+        </div>
+
+        <div id="cam-static-flash" class="cam-static-flash"></div>
+    </div>
+
+    <div class="win-screen" id="win-screen">
+        <h1 id="win-text">5:59 AM</h1>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
