@@ -8,8 +8,8 @@
 
 body {
     background-color: #030303;
-    /* IMPORTANTE: Asegurate de tener tu archivo menu.png en la misma carpeta */
-    background-image: url('menu.png');
+    /* IMPORTANTE: Asegurate de tener tu archivo menu.png en la misma carpeta. HOLA */
+    background-image: url('menu_monge.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
