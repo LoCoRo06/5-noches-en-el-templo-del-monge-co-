@@ -144,30 +144,28 @@ body.can-click { cursor: pointer; }
 
 .cam-bg {
     position: absolute;
-    /* 1. Definimos un contenedor considerablemente más grande que la pantalla.
-       Esto crea el espacio para el "zoom" y para el movimiento lateral. */
-    width: 120vw;  /* 40% más ancho que la pantalla */
-    height: 110vh; /* 20% más alto que la pantalla (ayuda a encajar fotos altas) */
-    
-    /* 2. Centramos este contenedor grande inicialmente */
-    top: -0.5vh;    /* Mitad del excedente de altura */
-    left: -10vw;   /* Mitad del excedente de ancho */
+    /* La caja vuelve a ser del tamaño exacto de la pantalla */
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
     margin: 0;
 
     background-image: url('Camera/living_alone.jpg');
     
-    /* 3. CAMBIO CLAVE: Forzamos a que la imagen rellene todo el contenedor grande.
-       Esto hace el zoom necesario para recortar los bordes negros originales de la foto. */
+    /* Cover asegura que llene la pantalla */
     background-size: cover; 
     
-    background-position: center;
+    /* Inicializamos la posición al centro */
+    background-position: 50% 50%;
     background-repeat: no-repeat;
     
-    /* Mantenemos tus filtros oscuros y B&W */
     filter: grayscale(1) brightness(0.4) contrast(1.1);
     
-    will-change: transform; /* Optimización para el movimiento */
+    /* ACÁ ESTÁ EL ZOOM: Escala la imagen un 10% para esconder los bordes negros de la foto original */
+    transform: scale(1.1); 
 }
+
 .cam-noise {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;

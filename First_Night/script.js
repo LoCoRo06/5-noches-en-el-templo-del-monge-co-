@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Directorio y archivos de Cámaras
     const CAMERAS = {
-        living: 'Camera/living_alone.jpg',
+        living: 'Camera/living_monge.png',
         comedor: 'Camera/comedor_monge.jpg',
-        cocina: 'Camera/cocina_alone.jpg',
+        cocina: 'Camera/cocina_monge.png',
         banio: 'Camera/banio_alone.jpg',
-        exterior: 'Camera/exterior_alone.jpg'
+        exterior: 'Camera/exterior_monge.jpg'
     };
     
     let currentScene = 'CENTER';
@@ -215,12 +215,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 flashlight.style.setProperty('--size', `500px`);
                 flashlight.style.setProperty('--flicker', `0.95`);
             }
-        } else {
+       } 
+        // Lógica de Panning de Cámaras (cuando el monitor está ARRIBA)
+        else {
+            // 1. Lerp lento en AMBOS ejes para la sensación de peso mecánico
             currentX += (targetX - currentX) * 0.05;
+            currentY += (targetY - currentY) * 0.05;
 
-            const moveX = (currentX / window.innerWidth - 0.5) * 2;
-            const panStrength = 10;
-            camBg.style.transform = `translateX(${moveX * -panStrength}vw)`;
+            // 2. Convertimos la posición actual a un porcentaje (de 0% a 100%)
+            const percentX = (currentX / window.innerWidth) * 100;
+            const percentY = (currentY / window.innerHeight) * 100;
+            
+            // 3. Movemos el INTERIOR de la imagen (background-position)
+            // Si el mouse está arriba del todo (0%), muestra el tope absoluto de la foto.
+            camBg.style.backgroundPosition = `${percentX}% ${percentY}%`;
         }
 
         requestAnimationFrame(animate);
